@@ -1,0 +1,13 @@
+eet: 65e3,
+youngs: 7e10,
+method: airy,
+rho_mantle: 3300.,
+gravity: 9.80665,
+clock:
+  start: {{ clock_start }}
+  stop: {{ clock_stop }}
+  step: {{ clock_step }}
+grid:
+  type: raster
+  shape: [{{ grid_rows }}, {{ grid_columns }}]
+  spacing: [{{ grid_row_spacing }}, {{ grid_column_spacing }}]
