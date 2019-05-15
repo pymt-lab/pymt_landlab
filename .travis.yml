@@ -38,8 +38,11 @@ install:
 - conda install -q bmi-tester model_metadata
 script:
 - python setup.py develop
-- python -c 'import pymt_landlab'- |
-  config_file=$(mmd-stage OverlandFlow . > MANIFEST && mmd-query OverlandFlow --var=run.config_file.path)
-  bmi-test pymt_landlab.bmi:OverlandFlow --infile=$config_file --manifest=MANIFEST -v- |
-  config_file=$(mmd-stage Flexure . > MANIFEST && mmd-query Flexure --var=run.config_file.path)
-  bmi-test pymt_landlab.bmi:Flexure --infile=$config_file --manifest=MANIFEST -v
+- python -c 'import pymt_landlab'
+- bmi-test pymt_landlab.bmi:OverlandFlow -vvv
+- bmi-test pymt_landlab.bmi:Flexure -vvv
+- bmi-test pymt_landlab.bmi:LinearDiffuser -vvv
+- bmi-test pymt_landlab.bmi:ExponentialWeatherer -vvv
+- bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser -vvv
+- bmi-test pymt_landlab.bmi:Vegetation -vvv
+- bmi-test pymt_landlab.bmi:SoilMoisture -vvv

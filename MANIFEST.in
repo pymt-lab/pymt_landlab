@@ -1,2 +1,1 @@
-include versioneer.py
-include pymt_landlab/_version.py
+recursive-include pymt_rafem/data/ *

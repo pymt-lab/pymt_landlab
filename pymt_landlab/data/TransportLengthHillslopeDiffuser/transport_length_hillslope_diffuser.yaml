@@ -1,0 +1,12 @@
+transport_length_hillslope_diffuser:
+  erodibility: {{ erodibility }}
+  slope_crit: {{ slope_crit }}
+
+clock:
+  start: {{ clock_start }}
+  stop: {{ clock_stop }}
+  step: {{ clock_step }}
+grid:
+  raster_model_grid:
+    args: [{{ grid_rows }}, {{ grid_columns }}]
+    xy_spacing: [{{ grid_column_spacing }}, {{ grid_row_spacing }}]

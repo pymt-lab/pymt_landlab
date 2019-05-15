@@ -4,7 +4,7 @@ pymt_landlab
 
 
 .. image:: https://img.shields.io/badge/CSDMS-Basic%20Model%20Interface-green.svg
-        :target: https://bmi-forum.readthedocs.io/
+        :target: https://bmi.readthedocs.io/
         :alt: Basic Model Interface
 
 .. image:: https://img.shields.io/badge/recipe-pymt_landlab-green.svg
@@ -28,6 +28,20 @@ PyMT plugins for landlab components
 * Free software: MIT license
 * Documentation: https://landlab.readthedocs.io.
 
+
+
+
+================================ ==========================================================
+Component                        PyMT
+================================ ==========================================================
+OverlandFlow                     `from pymt.models import OverlandFlow`
+Flexure                          `from pymt.models import Flexure`
+LinearDiffuser                   `from pymt.models import LinearDiffuser`
+ExponentialWeatherer             `from pymt.models import ExponentialWeatherer`
+TransportLengthHillslopeDiffuser `from pymt.models import TransportLengthHillslopeDiffuser`
+Vegetation                       `from pymt.models import Vegetation`
+SoilMoisture                     `from pymt.models import SoilMoisture`
+================================ ==========================================================
 
 ---------------
 Installing pymt

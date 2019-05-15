@@ -21,7 +21,6 @@ requirements:
     - numpy 1.11.*
     - model_metadata
     - landlab 
-
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -35,9 +34,19 @@ test:
     - pymt_landlab
   commands:
     - config_file=$(mmd-stage OverlandFlow . > MANIFEST && mmd-query OverlandFlow --var=run.config_file.path)
-    - bmi-test pymt_landlab.bmi:OverlandFlow --infile=$config_file --manifest=MANIFEST -v
+    - bmi-test pymt_landlab.bmi:OverlandFlow --config-file=$config_file --manifest=MANIFEST -v
     - config_file=$(mmd-stage Flexure . > MANIFEST && mmd-query Flexure --var=run.config_file.path)
-    - bmi-test pymt_landlab.bmi:Flexure --infile=$config_file --manifest=MANIFEST -v
+    - bmi-test pymt_landlab.bmi:Flexure --config-file=$config_file --manifest=MANIFEST -v
+    - config_file=$(mmd-stage LinearDiffuser . > MANIFEST && mmd-query LinearDiffuser --var=run.config_file.path)
+    - bmi-test pymt_landlab.bmi:LinearDiffuser --config-file=$config_file --manifest=MANIFEST -v
+    - config_file=$(mmd-stage ExponentialWeatherer . > MANIFEST && mmd-query ExponentialWeatherer --var=run.config_file.path)
+    - bmi-test pymt_landlab.bmi:ExponentialWeatherer --config-file=$config_file --manifest=MANIFEST -v
+    - config_file=$(mmd-stage TransportLengthHillslopeDiffuser . > MANIFEST && mmd-query TransportLengthHillslopeDiffuser --var=run.config_file.path)
+    - bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser --config-file=$config_file --manifest=MANIFEST -v
+    - config_file=$(mmd-stage Vegetation . > MANIFEST && mmd-query Vegetation --var=run.config_file.path)
+    - bmi-test pymt_landlab.bmi:Vegetation --config-file=$config_file --manifest=MANIFEST -v
+    - config_file=$(mmd-stage SoilMoisture . > MANIFEST && mmd-query SoilMoisture --var=run.config_file.path)
+    - bmi-test pymt_landlab.bmi:SoilMoisture --config-file=$config_file --manifest=MANIFEST -v
 
 about:
   summary: Python package that wraps the landlab BMI.

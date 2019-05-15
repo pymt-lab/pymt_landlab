@@ -58,10 +58,13 @@ pretty:
 	black setup.py pymt_landlab
 
 test: ## run tests quickly with the default Python
-	config_file=$(mmd-stage OverlandFlow . > MANIFEST && mmd-query OverlandFlow --var=run.config_file.path)
-	bmi-test pymt_landlab.bmi:OverlandFlow --infile=$config_file --manifest=MANIFEST -v
-	config_file=$(mmd-stage Flexure . > MANIFEST && mmd-query Flexure --var=run.config_file.path)
-	bmi-test pymt_landlab.bmi:Flexure --infile=$config_file --manifest=MANIFEST -v
+	bmi-test pymt_landlab.bmi:OverlandFlow -vvv
+	bmi-test pymt_landlab.bmi:Flexure -vvv
+	bmi-test pymt_landlab.bmi:LinearDiffuser -vvv
+	bmi-test pymt_landlab.bmi:ExponentialWeatherer -vvv
+	bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser -vvv
+	bmi-test pymt_landlab.bmi:Vegetation -vvv
+	bmi-test pymt_landlab.bmi:SoilMoisture -vvv
 
 test-all: ## run tests on every Python version with tox
 	tox
