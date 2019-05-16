@@ -41,9 +41,9 @@ before_install:
 - conda config --set always_yes yes --set changeps1 no
 - conda create -n test_env python=$CONDA_ENV
 - source activate test_env
-- conda install landlab -c conda-forge
+- conda install landlab bmi-tester -c conda-forge
 install:
-- pip install bmi-tester numpy model_metadata standard_names pytest
+- pip install numpy model_metadata standard_names pytest
 - pip install . -r requirements.txt
 script:
 - python -c 'import pymt_landlab'
