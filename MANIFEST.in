@@ -1,1 +1,1 @@
-recursive-include pymt_rafem/data/ *
+recursive-include pymt_landlab/data/ *
