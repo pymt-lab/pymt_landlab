@@ -1,16 +1,27 @@
 language: generic
 os:
-- osx
 - linux
+- osx
 env:
   matrix:
-  - TRAVIS_PYTHON_VERSION="2.7"
-  - TRAVIS_PYTHON_VERSION="3.6"
-  - TRAVIS_PYTHON_VERSION="3.7"
+  - CONDA_ENV=3.7
+  - CONDA_ENV=3.6
   global:
-  - CONDA_PREFIX=$HOME/miniconda
-  - MINICONDA_URL_BASE="https://repo.continuum.io/miniconda/Miniconda3-latest"
+    secure: YAQcHyl5wYVVzcCOc0oQolmwNzUjAgjxriljhn/Ub/sB5hxdaYIXlu66djR/cbwDQ3fuZHLFGsj3EaEEvHwjg/8BMeNuYl9jKqhSW/78pA+oGxBZMcJbB3PNE88VH49KluuwzAxGlD14q3PestlqkFZ/AnU6zmCOd6GEADf1thRO3JJsL9WtWiXmlnjX6gq0cjNMwmnj11HqcQ6Vlcfj3M0JvIR8d8aLM63qMADxCdWJeb/iNIPJwUaYsdHDSLGfuwrGCXlq7W/6Lw608SBtNbJYZPMi42pSSud7HNhbG+ElJ7oVXFHDn69tntMcA8dJQt0/hEfphcDzGZhBchkdfpJistqeGFBqJnGcuLM/GLU+XP6r1cJcHClzVKmVn3UQUcN0E/qJF8h6KuDe+4Ux+2SRuuxloz04CyyG/5JEza2sb1Ea1byDg+tqu3ntoGpkCo7THiokOkKtfY9Mke19j3Dim7UXHo8QWnXCz5Z6lNPC/NQjw6HWQL23yikRdszfqVVvDBqJY8S/y49xJRy7r6uiRJwpdnIZzwi8htS3+A+ycrFjzjJCXUGB5Ol4Fr+vkeVuMOFm5US/YMChm7fY7jwbzuJpIwKYCC73DiUwqQ1C8UwUDzbG549q8Vvxm0AemPw43kkA7XpOL2+iPCYBPeOSY5XykONWJ4TgtpvXO6M=
 sudo: false
+jobs:
+  include:
+  - stage: deploy
+    if: tag =~ v.*$
+    script: skip
+    os: linux
+    deploy:
+      on:
+        all_branches: true
+      provider: pypi
+      user: mcflugen
+      password:
+    secure: gVtrxqV6orFtVo9xHNOl2A44kuvb22YdC2mNWMI/bq4rp5iM0wvgOnwbzQtxu66VJXGtxRxR5TEWe5ZXRXXLhYYow/B+iHlYlRSCXMm67ue9WNGPlQZXqGGPBYJLPddoc6nShCBgC9g7iClGrZprGT+2km8Oz6luQpqndt8DhzY7nKp2/7fEIQaPYymK0YPaMtGFKs+Fb3IIa6rd17qiPZw/cO0vZ5YEY0MkNyThz1jNqREottf/F4h8icSnpFZQIMJRMYhlLtJcFfiCLSX96lCUzt5PX5RGlV/8Yzxo8ch4I8zapKPr5HMnj5pybWB3gB3nOtE1B+8UxBmfFQpTq1HWqtMjydkoskScfSEnYcP4c7IjzmsHJllSXG2Et/snuv1C4bylrPdLl+xhqiJdfAuTIhD00cL9Fy08ii8ogVC9YvsjrpngV7EoD5E1TVzAdtuiOmbkIULJpDnZsPJJdWhffpzpZ0R+CVfWpm4wPf6PWgJwG306/0Az6ovkrRWd5fVAEobIo9/Ka37v5XJ1Bt+6Wp5Yvw+pThHbwsaXB9CFWKm0cEirtjLTHu1ov1XxC93pC3gqcneEW564CcF3pTaOSilUq4IsgktZHWpsfELFnGrCEGELTd29GXRhF+wPg12OsJ42fZGzgHfhQOf9DbxRVgKs5Ma9PFTbCPQ+2FU=
 before_install:
 - |
   if [[ $TRAVIS_OS_NAME == "osx" ]]; then
@@ -18,26 +29,22 @@ before_install:
     brew cleanup -s
     rm -rf $(brew --cache)
   fi
-install:
 - |
   if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-    OS="MacOSX-x86_64"
+    curl https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh > $HOME/miniconda.sh
   else
-    OS="Linux-x86_64"
+    curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh > $HOME/miniconda.sh
   fi
-- curl $MINICONDA_URL_BASE-$OS.sh > $HOME/minconda.sh
-- bash $HOME/minconda.sh -b -p $CONDA_PREFIX
-- export PATH="$CONDA_PREFIX/bin:$PATH"
+- bash $HOME/miniconda.sh -b -p $HOME/anaconda
+- export PATH="$HOME/anaconda/bin:$PATH"
 - hash -r
 - conda config --set always_yes yes --set changeps1 no
-- conda config --add channels conda-forge
-- conda create -n _testing python=$TRAVIS_PYTHON_VERSION
-- source activate _testing
-- conda install -q conda-build anaconda-client
-- conda install -q --file=requirements.txt
-- conda install -q bmi-tester model_metadata
+- conda create -n test_env python=$CONDA_ENV
+- source activate test_env
+install:
+- pip install bmi-tester model_metadata standard_names pytest
+- pip install . -r requirements.txt
 script:
-- python setup.py develop
 - python -c 'import pymt_landlab'
 - bmi-test pymt_landlab.bmi:OverlandFlow -vvv
 - bmi-test pymt_landlab.bmi:Flexure -vvv
