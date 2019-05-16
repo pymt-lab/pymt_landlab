@@ -41,6 +41,7 @@ before_install:
 - conda config --set always_yes yes --set changeps1 no
 - conda create -n test_env python=$CONDA_ENV
 - source activate test_env
+- conda install landlab
 install:
 - pip install bmi-tester numpy model_metadata standard_names pytest
 - pip install . -r requirements.txt
@@ -53,3 +54,4 @@ script:
 - bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser -vvv
 - bmi-test pymt_landlab.bmi:Vegetation -vvv
 - bmi-test pymt_landlab.bmi:SoilMoisture -vvv
+- bmi-test pymt_landlab.bmi:DepthDependentDiffuser -vvv
