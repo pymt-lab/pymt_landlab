@@ -10,8 +10,8 @@ pymt_landlab
 .. image:: https://img.shields.io/badge/recipe-pymt_landlab-green.svg
         :target: https://anaconda.org/conda-forge/pymt_landlab
 
-.. image:: https://img.shields.io/travis/mcflugen/pymt_landlab.svg
-        :target: https://travis-ci.org/mcflugen/pymt_landlab
+.. image:: https://img.shields.io/travis/pymt-lab/pymt_landlab.svg
+        :target: https://travis-ci.org/pymt-lab/pymt_landlab
 
 .. image:: https://readthedocs.org/projects/pymt_landlab/badge/?version=latest
         :target: https://pymt_landlab.readthedocs.io/en/latest/?badge=latest
