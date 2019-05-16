@@ -29,6 +29,7 @@ setup(
     name="pymt_landlab",
     author="Eric Hutton",
     description="PyMT plugin for landlab",
+    long_description=open("README.rst").read(),
     version=versioneer.get_version(),
     packages=packages,
     cmdclass=cmdclass,
