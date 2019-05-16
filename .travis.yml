@@ -47,11 +47,27 @@ install:
 - pip install . -r requirements.txt
 script:
 - python -c 'import pymt_landlab'
-- bmi-test pymt_landlab.bmi:OverlandFlow -vvv
-- bmi-test pymt_landlab.bmi:Flexure -vvv
-- bmi-test pymt_landlab.bmi:LinearDiffuser -vvv
-- bmi-test pymt_landlab.bmi:ExponentialWeatherer -vvv
-- bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser -vvv
-- bmi-test pymt_landlab.bmi:Vegetation -vvv
-- bmi-test pymt_landlab.bmi:SoilMoisture -vvv
-- bmi-test pymt_landlab.bmi:DepthDependentDiffuser -vvv
+- |
+  config_file=$(mmd-stage pymt_landlab/data/OverlandFlow . > MANIFEST && mmd-query pymt_landlab/data/OverlandFlow --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:OverlandFlow --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/Flexure . > MANIFEST && mmd-query pymt_landlab/data/Flexure --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:Flexure --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/LinearDiffuser . > MANIFEST && mmd-query pymt_landlab/data/LinearDiffuser --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:LinearDiffuser --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/ExponentialWeatherer . > MANIFEST && mmd-query pymt_landlab/data/ExponentialWeatherer --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:ExponentialWeatherer --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/TransportLengthHillslopeDiffuser . > MANIFEST && mmd-query pymt_landlab/data/TransportLengthHillslopeDiffuser --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/Vegetation . > MANIFEST && mmd-query pymt_landlab/data/Vegetation --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:Vegetation --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/SoilMoisture . > MANIFEST && mmd-query pymt_landlab/data/SoilMoisture --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:SoilMoisture --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
+- |
+  config_file=$(mmd-stage pymt_landlab/data/DepthDependentDiffuser . > MANIFEST && mmd-query pymt_landlab/data/DepthDependentDiffuser --var=run.config_file.path)
+  bmi-test pymt_landlab.bmi:DepthDependentDiffuser --config-file=$config_file --manifest=MANIFEST --root-dir=. -v
