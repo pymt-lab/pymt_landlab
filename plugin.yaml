@@ -19,6 +19,7 @@ library:
   - TransportLengthHillslopeDiffuser=landlab.bmi.components:TransportLengthHillslopeDiffuser
   - Vegetation=landlab.bmi.components:Vegetation
   - SoilMoisture=landlab.bmi.components:SoilMoisture
+  - DepthDependentDiffuser=landlab.bmi.components:DepthDependentDiffuser
   language: python
   register: ''
 plugin:

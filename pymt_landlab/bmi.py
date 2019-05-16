@@ -10,6 +10,7 @@ from landlab.bmi.components import ExponentialWeatherer as ExponentialWeatherer
 from landlab.bmi.components import TransportLengthHillslopeDiffuser as TransportLengthHillslopeDiffuser
 from landlab.bmi.components import Vegetation as Vegetation
 from landlab.bmi.components import SoilMoisture as SoilMoisture
+from landlab.bmi.components import DepthDependentDiffuser as DepthDependentDiffuser
 
 OverlandFlow.__name__ = "OverlandFlow"
 OverlandFlow.METADATA = os.path.abspath(
@@ -46,6 +47,11 @@ SoilMoisture.METADATA = os.path.abspath(
     pkg_resources.resource_filename("pymt_landlab", "data/SoilMoisture")
 )
 
+DepthDependentDiffuser.__name__ = "DepthDependentDiffuser"
+DepthDependentDiffuser.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/DepthDependentDiffuser")
+)
+
 __all__ = [
     "OverlandFlow",
     "Flexure",
@@ -54,4 +60,5 @@ __all__ = [
     "TransportLengthHillslopeDiffuser",
     "Vegetation",
     "SoilMoisture",
+    "DepthDependentDiffuser",
 ]
