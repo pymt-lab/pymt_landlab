@@ -42,7 +42,7 @@ before_install:
 - conda create -n test_env python=$CONDA_ENV
 - source activate test_env
 install:
-- pip install bmi-tester model_metadata standard_names pytest
+- pip install bmi-tester numpy model_metadata standard_names pytest
 - pip install . -r requirements.txt
 script:
 - python -c 'import pymt_landlab'
