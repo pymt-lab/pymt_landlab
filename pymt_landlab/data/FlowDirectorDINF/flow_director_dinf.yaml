@@ -1,4 +1,4 @@
-FlowDirectorDINF:
+flow_director_dinf:
   surface: {{ surface }}
 
 clock:

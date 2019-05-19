@@ -1,4 +1,4 @@
-FlowAccumulator:
+flow_accumulator:
   flow_director: {{ flow_director }}
   surface: "topographic__elevation"
 

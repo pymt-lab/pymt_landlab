@@ -1,4 +1,4 @@
-FlowDirectorSteepest:
+flow_director_steepest:
   surface: {{ surface }}
 
 clock:

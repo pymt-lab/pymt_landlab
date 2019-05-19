@@ -1,4 +1,4 @@
-FlowDirectorD8:
+flow_director_d8:
   surface: {{ surface }}
 
 clock:

@@ -1,4 +1,4 @@
-FlowRouter:
+flow_router:
   method: {{ method }}
   runoff_rate: {{ runoff_rate }}
 

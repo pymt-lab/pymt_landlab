@@ -1,4 +1,4 @@
-StreamPowerEroder:
+stream_power_eroder:
   m_sp: {{ m_sp }}
   n_sp: {{ n_sp }}
   sp_type: {{ sp_type }}
