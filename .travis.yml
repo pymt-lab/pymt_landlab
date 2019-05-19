@@ -45,7 +45,7 @@ install:
 - pip install numpy bmi-tester model_metadata standard_names pytest
 - conda install pymt -c conda-forge
 - conda uninstall --force landlab
-- pip install git+https://github.com/landlab/landlab.git@mcflugen/bmi-tweaks
+- pip install git+https://github.com/landlab/landlab.git@mcflugen/add-bc-to-bmi
 - pip install . -r requirements.txt
 script:
 - python -c 'import pymt_landlab'
