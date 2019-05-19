@@ -1,4 +1,4 @@
-name: landlab
+name: TransportLengthHillslopeDiffuser
 language: python
 package: landlab
 class: TransportLengthHillslopeDiffuser

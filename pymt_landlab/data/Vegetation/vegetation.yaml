@@ -38,6 +38,7 @@ clock:
   start: {{ clock_start }}
   stop: {{ clock_stop }}
   step: {{ clock_step }}
+  units: "day"
 grid:
   RasterModelGrid:
     args: [{{ grid_rows }}, {{ grid_columns }}]

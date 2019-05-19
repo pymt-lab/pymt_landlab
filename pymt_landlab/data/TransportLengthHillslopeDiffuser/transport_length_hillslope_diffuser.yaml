@@ -6,6 +6,7 @@ clock:
   start: {{ clock_start }}
   stop: {{ clock_stop }}
   step: {{ clock_step }}
+  units: "yr"
 grid:
   RasterModelGrid:
     args: [{{ grid_rows }}, {{ grid_columns }}]
@@ -15,6 +16,9 @@ grid:
         flow__receiver_node:
           - constant:
               value: 0
-        topographic__steepest_slope:
+        flow__sink_flag:
           - constant:
               value: 0
+        topographic__steepest_slope:
+          - constant:
+              value: 0.0

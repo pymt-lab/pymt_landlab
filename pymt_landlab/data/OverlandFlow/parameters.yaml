@@ -34,6 +34,14 @@ rainfall_intensity:
     default: 0.0
     type: float
     units: ""
+steep_slopes:
+  description: |
+    Modify the algorithm to handle steeper slopes at the expense of
+    speed. If model runs become unstable, consider setting to True.
+  value:
+    default: False
+    type: bool
+    units: ""
 
 grid_rows:
   description: Number of rows in the grid.

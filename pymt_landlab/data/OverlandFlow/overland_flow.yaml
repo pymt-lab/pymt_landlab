@@ -6,12 +6,13 @@ overland_flow:
   g: {{ g }}
   theta: {{ theta }}
   rainfall_intensity: {{ rainfall_intensity }}
-  steep_slopes: False
+  steep_slopes: {{ steep_slopes }}
 
 clock:
   start: {{ clock_start }}
   stop: {{ clock_stop }}
   step: {{ clock_step }}
+  units: "s"
 grid:
   RasterModelGrid:
     args: [{{ grid_rows }}, {{ grid_columns }}]
