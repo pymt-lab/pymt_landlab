@@ -56,3 +56,9 @@ script:
 - bmi-test pymt_landlab.bmi:TransportLengthHillslopeDiffuser -vvv
 - bmi-test pymt_landlab.bmi:Vegetation -vvv
 - bmi-test pymt_landlab.bmi:SoilMoisture -vvv
+- bmi-test pymt_landlab.bmi:FlowDirectorSteepest -vvv
+- bmi-test pymt_landlab.bmi:FlowRouter -vvv
+- bmi-test pymt_landlab.bmi:FlowAccumulator -vvv
+- bmi-test pymt_landlab.bmi:StreamPowerEroder -vvv
+- bmi-test pymt_landlab.bmi:FlowDirectorD8 -vvv
+- bmi-test pymt_landlab.bmi:FlowDirectorDINF -vvv

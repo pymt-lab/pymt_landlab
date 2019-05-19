@@ -11,6 +11,13 @@ from landlab.bmi.components import TransportLengthHillslopeDiffuser as Transport
 from landlab.bmi.components import Vegetation as Vegetation
 from landlab.bmi.components import SoilMoisture as SoilMoisture
 from landlab.bmi.components import DepthDependentDiffuser as DepthDependentDiffuser
+from landlab.bmi.components import FlowDirectorSteepest as FlowDirectorSteepest
+from landlab.bmi.components import FlowAccumulator as FlowAccumulator
+from landlab.bmi.components import StreamPowerEroder as StreamPowerEroder
+from landlab.bmi.components import FlowRouter as FlowRouter
+from landlab.bmi.components import FlowDirectorD8 as FlowDirectorD8
+from landlab.bmi.components import FlowDirectorDINF as FlowDirectorDINF
+
 
 OverlandFlow.__name__ = "OverlandFlow"
 OverlandFlow.METADATA = os.path.abspath(
@@ -52,6 +59,36 @@ DepthDependentDiffuser.METADATA = os.path.abspath(
     pkg_resources.resource_filename("pymt_landlab", "data/DepthDependentDiffuser")
 )
 
+FlowDirectorSteepest.__name__ = "FlowDirectorSteepest"
+FlowDirectorSteepest.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/FlowDirectorSteepest")
+)
+
+FlowAccumulator.__name__ = "FlowAccumulator"
+FlowAccumulator.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/FlowAccumulator")
+)
+
+StreamPowerEroder.__name__ = "StreamPowerEroder"
+StreamPowerEroder.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/StreamPowerEroder")
+)
+
+FlowRouter.__name__ = "FlowRouter"
+FlowRouter.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/FlowRouter")
+)
+
+FlowDirectorD8.__name__ = "FlowDirectorD8"
+FlowDirectorD8.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/FlowDirectorD8")
+)
+
+FlowDirectorDINF.__name__ = "FlowDirectorDINF"
+FlowDirectorDINF.METADATA = os.path.abspath(
+    pkg_resources.resource_filename("pymt_landlab", "data/FlowDirectorDINF")
+)
+
 __all__ = [
     "OverlandFlow",
     "Flexure",
@@ -61,4 +98,10 @@ __all__ = [
     "Vegetation",
     "SoilMoisture",
     "DepthDependentDiffuser",
+    "FlowDirectorSteepest",
+    "FlowAccumulator",
+    "StreamPowerEroder",
+    "FlowRouter",
+    "FlowDirectorD8",
+    "FlowDirectorDINF",
 ]

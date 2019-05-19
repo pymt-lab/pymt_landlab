@@ -20,6 +20,12 @@ entry_points = {
         "TransportLengthHillslopeDiffuser=pymt_landlab.bmi:TransportLengthHillslopeDiffuser",
         "Vegetation=pymt_landlab.bmi:Vegetation",
         "SoilMoisture=pymt_landlab.bmi:SoilMoisture",
+        "FlowDirectorSteepest=pymt_landlab.bmi:FlowDirectorSteepest",
+        "FlowRouter=pymt_landlab.bmi:FlowRouter",
+        "FlowAccumulator=pymt_landlab.bmi:FlowAccumulator",
+        "StreamPowerEroder=pymt_landlab.bmi:StreamPowerEroder",
+        "FlowDirectorD8=pymt_landlab.bmi:FlowDirectorD8",
+        "FlowDirectorDINF=pymt_landlab.bmi:FlowDirectorDINF",
     ]
 }
 
