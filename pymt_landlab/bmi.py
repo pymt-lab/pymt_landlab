@@ -14,7 +14,6 @@ from landlab.bmi.components import DepthDependentDiffuser as DepthDependentDiffu
 from landlab.bmi.components import FlowDirectorSteepest as FlowDirectorSteepest
 from landlab.bmi.components import FlowAccumulator as FlowAccumulator
 from landlab.bmi.components import StreamPowerEroder as StreamPowerEroder
-from landlab.bmi.components import FlowRouter as FlowRouter
 from landlab.bmi.components import FlowDirectorD8 as FlowDirectorD8
 from landlab.bmi.components import FlowDirectorDINF as FlowDirectorDINF
 
@@ -74,11 +73,6 @@ StreamPowerEroder.METADATA = os.path.abspath(
     pkg_resources.resource_filename("pymt_landlab", "data/StreamPowerEroder")
 )
 
-FlowRouter.__name__ = "FlowRouter"
-FlowRouter.METADATA = os.path.abspath(
-    pkg_resources.resource_filename("pymt_landlab", "data/FlowRouter")
-)
-
 FlowDirectorD8.__name__ = "FlowDirectorD8"
 FlowDirectorD8.METADATA = os.path.abspath(
     pkg_resources.resource_filename("pymt_landlab", "data/FlowDirectorD8")
@@ -101,7 +95,6 @@ __all__ = [
     "FlowDirectorSteepest",
     "FlowAccumulator",
     "StreamPowerEroder",
-    "FlowRouter",
     "FlowDirectorD8",
     "FlowDirectorDINF",
 ]

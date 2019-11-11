@@ -21,7 +21,6 @@ entry_points = {
         "Vegetation=pymt_landlab.bmi:Vegetation",
         "SoilMoisture=pymt_landlab.bmi:SoilMoisture",
         "FlowDirectorSteepest=pymt_landlab.bmi:FlowDirectorSteepest",
-        "FlowRouter=pymt_landlab.bmi:FlowRouter",
         "FlowAccumulator=pymt_landlab.bmi:FlowAccumulator",
         "StreamPowerEroder=pymt_landlab.bmi:StreamPowerEroder",
         "FlowDirectorD8=pymt_landlab.bmi:FlowDirectorD8",
